@@ -8,4 +8,5 @@
 
 "Breakfast taco" 2 "Egg" 2 "Tortilla" 1 "Potato" 1
 "Soup" 1 "Chicken" 1 "Salt" 5
+"Super Ultimate Weapon" 1 "Untradable item" 5 "Potato" 1
 

@@ -41,13 +41,20 @@ data = []
 for recipe in recipes:
 #	print "Calculating for:"+str(recipe)
 #	print ""
-	product = int(recipe[1]) * int(items[recipe[0]])
-	for i in range(2,len(recipe)):
-		if i%2 == 1:
-			continue
-		product = product - int(recipe[i+1]) * int(items[recipe[i]])
+	product=0
+	try:
+		product = int(recipe[1]) * int(items[recipe[0]])
+		
+		for i in range(2,len(recipe)):
+			if i%2 == 1:
+				continue
+			product = product - int(recipe[i+1]) * int(items[recipe[i]])
 #	print "Profit for making "+str(recipe[0])+" is "+str(product)	
-	data.append((product,recipe))
+		data.append((product,recipe))
+	except KeyError:	#Recipe requires unknown item. Continue to next recipe.
+		continue
+
+
 data=sorted(data,reverse=True)
 
 top=5
