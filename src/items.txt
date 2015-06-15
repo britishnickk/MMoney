@@ -1,0 +1,8 @@
+"Breakfast taco" 300
+"Egg" 50
+"Tortilla" 10
+"Potato" 20
+"Soup" 200
+"Chicken" 100
+"Salt" 10
+
