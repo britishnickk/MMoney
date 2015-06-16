@@ -5,4 +5,6 @@
 "Soup" 200
 "Chicken" 100
 "Salt" 10
+"Tier 1 mat" 10
+"Tier 2 mat" 100
 

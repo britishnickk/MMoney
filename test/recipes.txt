@@ -1,3 +1,5 @@
 "Breakfast taco" 1 "Egg" 2 "Tortilla" 1 "Potato" 1
 "Soup" 1 "Chicken" 1 "Salt" 5
+"Unfinishable recipe" 1 "Unknown item" 1 "Potato" 5
+"Tier 1 mat" 5 "Tier 2 mat" 1
 
