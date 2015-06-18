@@ -34,4 +34,5 @@ for i in details.keys(): 		#Loop over all recipes. We can't know how many there 
 	except KeyError:
 		continue
 	print out
-	
+
+print ""	
