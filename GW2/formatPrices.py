@@ -8,8 +8,8 @@ with open('rawItems.txt') as f:
 			print len(line)
 			print line
 			break;
-		prices[line[1]]= [line[8],line[9]]
+		prices[line[1]]= [line[-6],line[-5]]
 
 for item in prices:
-	print item+" " + prices[item][0] + " " + prices[item][1]
+	print "\"@ "+item[1:]+"@ " + prices[item][0] + " " + prices[item][1]
 print ""

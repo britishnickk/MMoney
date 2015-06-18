@@ -5,55 +5,68 @@
 items={}
 
 print "Please enter one item per line in the following format:"
-print "\"[item]\" [price]"
+print "\"[item]\" [instant sell price] [instant buy price]"
 print "Enter an empty line to finish \n"
 
 #Read in items
+itemPrice = raw_input()
+itemPrice = raw_input()
 while(True):
 	itemPrice = raw_input()
-	if itemPrice == "":
+	if '"' not in itemPrice:# == "":
 		break
-	itemPrice= itemPrice.split('"')
+	itemPrice= itemPrice.split('"@')
 	if len(itemPrice) < 3 :
 		print "All items must have a price"
+		print "\tYou entered: "+str(itemPrice)
 	else:
-		item = itemPrice[1]
-		price = itemPrice[2]
+		item = str(itemPrice[1])[1:]
+		prices = (itemPrice[2]).split(' ')
+		price=prices[1]
+		maxprice=int(prices[2])
 		items[item] = price
 
-#print "\n-----------------RECIPES------------------"
+print "\n-----------------PARSING RECIPES------------------"
 #Read in Recipes
 recipes=[]
 while(True):
 	itemRecipe = raw_input()
 	if itemRecipe == "":
 		break
-	itemRecipe= itemRecipe.split('"')
-
+	itemRecipe= itemRecipe.split('"@')
+	if len(itemRecipe) < 4:
+		print "Invalid Recipe: " + str(itemRecipe)
+		exit()
 	item = itemRecipe[1]
 	recipe = itemRecipe[1:]
-
 	recipes.append(recipe)
 
 
 data = []
-#print "------------------Calculating Profits-----------------"
+for item in items:
+	print "Key: "+str(item)+" Value: "+str(items[item])
+print "------------------Calculating Profits-----------------"
 for recipe in recipes:
-#	print "Calculating for:"+str(recipe)
+	print "Calculating for:"+str(recipe)
 #	print ""
 	product=0
 	try:
+#		print "recipe[1] = "+ recipe[1]
+#		print "items[recipe[0]] = "+ items[recipe[0]]
 		product = int(recipe[1]) * int(items[recipe[0]])
-		
+#		print "Net gain: "+str(product)	
 		for i in range(2,len(recipe)):
 			if i%2 == 1:
 				continue
 			product = product - int(recipe[i+1]) * int(items[recipe[i]])
-#	print "Profit for making "+str(recipe[0])+" is "+str(product)	
+		print "Profit for making "+str(recipe[0])+" is "+str(product)	
 		data.append((product,recipe))
 	except KeyError:	#Recipe requires unknown item. Continue to next recipe.
 		continue
-
+#	except ValueError:
+#		continue
+	except KeyboardInterrupt:
+		exit()
 
 data=sorted(data,reverse=True)
 
