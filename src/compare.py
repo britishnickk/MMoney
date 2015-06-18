@@ -20,11 +20,12 @@ while(True):
 		print "All items must have a price"
 		print "\tYou entered: "+str(itemPrice)
 	else:
-		item = str(itemPrice[1])[1:]
+		item = str(itemPrice[1])
 		prices = (itemPrice[2]).split(' ')
 		price=prices[1]
 		maxprice=int(prices[2])
 		items[item] = price
+		print "Item "+str(item)+" costs "+ str(price)
 
 print "\n-----------------PARSING RECIPES------------------"
 #Read in Recipes
